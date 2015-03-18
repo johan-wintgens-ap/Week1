@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DataGrid" x:Class="DataGrid.MainWindow"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:MusicSalesDataSet x:Key="musicSalesDataSet"/>
+        <CollectionViewSource x:Key="artistsViewSource" Source="{Binding Artists, Source={StaticResource musicSalesDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource artistsViewSource}">
+
+        <DataGrid x:Name="artistsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="59,90,58,30" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="artistColumn" Width="SizeToHeader" Header="Artist" Binding="{Binding Artist}"/>
+                <DataGridTextColumn x:Name="companyColumn" Width="SizeToHeader" Header="Company" Binding="{Binding Company}"/>
+                <DataGridTextColumn x:Name="salesColumn" Width="SizeToHeader" Header="Sales" Binding="{Binding Sales}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="salesabovetextbox" HorizontalAlignment="Left" Height="23" Margin="133,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Name="highsalesbutton" Content="Button" HorizontalAlignment="Left" Margin="282,36,0,0" VerticalAlignment="Top" Width="75" Click="highsalesbutton_Click"/>
+
+    </Grid>
+</Window>
