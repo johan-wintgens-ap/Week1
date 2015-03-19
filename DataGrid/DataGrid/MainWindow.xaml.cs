@@ -32,11 +32,11 @@ namespace DataGrid
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataGrid.MusicSalesDataSet musicSalesDataSet = ((DataGrid.MusicSalesDataSet)(this.FindResource("musicSalesDataSet")));
+            musicSalesDataSet = ((DataGrid.MusicSalesDataSet)(this.FindResource("musicSalesDataSet")));
             // Load data into the table Artists. You can modify this code as needed.
-            DataGrid.MusicSalesDataSetTableAdapters.ArtistsTableAdapter musicSalesDataSetArtistsTableAdapter = new DataGrid.MusicSalesDataSetTableAdapters.ArtistsTableAdapter();
-            musicSalesDataSetArtistsTableAdapter.Fill(musicSalesDataSet.Artists);
-            System.Windows.Data.CollectionViewSource artistsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("artistsViewSource")));
+            artistsTableAdapter = new DataGrid.MusicSalesDataSetTableAdapters.ArtistsTableAdapter();
+            artistsTableAdapter.Fill(musicSalesDataSet.Artists);
+            artistsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("artistsViewSource")));
             artistsViewSource.View.MoveCurrentToFirst();
         }
 

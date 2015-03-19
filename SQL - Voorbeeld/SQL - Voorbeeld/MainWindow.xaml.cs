@@ -98,10 +98,11 @@ namespace SQL___Voorbeeld
             try
             {
                 connection.Open();
-                SqlDataAdapter adapter : new SqlDataAdapter();
+                SqlDataAdapter adapter = new SqlDataAdapter();
 
                 //set up SQL update
-                string command = "UPDATE Artists SET Company = '"+companyTextBox.Text+"', Sales = '"+salesTextBox.Text+"' WHERE Artist = '"+artistTextBox.Text+"'";
+                string command = "UPDATE Artists SET Company = '" + companyTextBox.Text + "', Sales = '" +
+                                 salesTextBox.Text + "' WHERE Artist = '" + artistTextBox.Text + "'";
                 sqlLabel.Content=command;
 
                 //put command in adapter
